@@ -1,0 +1,31 @@
+using System;
+
+class Programa
+{
+    static void Main()
+    {
+        // Definir el tamaño del arreglo
+        Console.Write("Ingrese la cantidad de números a almacenar: ");
+        int tamaño = int.Parse(Console.ReadLine());
+
+        // Declarar el arreglo
+        int[] numeros = new int[tamaño];
+
+        // Ingresar datos en el arreglo
+        for (int i = 0; i < tamaño; i++)
+        {
+            Console.Write($"Ingrese el número {i + 1}: ");
+            numeros[i] = int.Parse(Console.ReadLine());
+        }
+
+        // Mostrar los valores almacenados
+        Console.WriteLine("\nNúmeros ingresados:");
+        foreach (int num in numeros)
+        {
+            Console.Write(num + " ");
+        }
+        
+        Console.WriteLine("\n\nPresione una tecla para salir...");
+        Console.ReadKey();
+    }
+}
