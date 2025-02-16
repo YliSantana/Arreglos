@@ -1,0 +1,48 @@
+using System;
+
+class Program
+{
+    // Método para verificar si un número es primo
+    static bool EsPrimo(int numero)
+    {
+        if (numero <= 1)
+            return false;
+
+        for (int i = 2; i <= Math.Sqrt(numero); i++)
+        {
+            if (numero % i == 0)
+                return false;
+        }
+        return true;
+    }
+
+    // Método para contar los dígitos pares de un número
+    static int ContarDigitosPares(int numero)
+    {
+        int contador = 0;
+        string numeroComoCadena = Math.Abs(numero).ToString(); // Convertimos a string para analizar los dígitos
+
+        foreach (char digito in numeroComoCadena)
+        {
+            if (digito == '0' || digito == '2' || digito == '4' || digito == '6' || digito == '8')
+            {
+                contador++; // Contamos los dígitos pares
+            }
+        }
+
+        return contador;
+    }
+
+    static void Main()
+    {
+        int[] numeros = new int[10];
+        int indiceConMasPares = -1; // Variable para guardar el índice del número con más dígitos pares
+        int maxPares = -1; // Contador para el máximo número de dígitos pares
+        // Leemos los 10 números
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine("Introduce un número entero: ");
+            numeros[i] = int.Parse(Console.ReadLine());
+        }
+
+        // Recorremos el arreglo para verificar los números primos y contar sus dígitos pare
