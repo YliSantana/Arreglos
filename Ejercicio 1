@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        char[] numerosChar = new char[10];
+        int[] numeros = new int[10];
+
+        Console.WriteLine("Ingrese 10 números enteros (uno por línea):");
+        for (int i = 0; i < 10; i++)
+        {
+            numerosChar[i] = Console.ReadLine()[0];
+            numeros[i] = (int)char.GetNumericValue(numerosChar[i]);
+        }
+
+        int maxPos = 0;
+        for (int i = 1; i < numeros.Length; i++)
+        {
+            if (numeros[i] > numeros[maxPos])
+                maxPos = i;
+        }
+
+        Console.WriteLine($"El número mayor está en la posición {maxPos}");
+    }
+}
