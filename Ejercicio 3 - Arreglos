@@ -1,0 +1,44 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = new int[10];
+
+        Console.WriteLine("Ingrese 10 números enteros:");
+        for (int i = 0; i < 10; i++)
+        {
+            numeros[i] = int.Parse(Console.ReadLine());
+        }
+
+        int maxPrimo = int.MinValue, maxPrimoPos = -1;
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            if (EsPrimo(numeros[i]) && numeros[i] > maxPrimo)
+            {
+                maxPrimo = numeros[i];
+                maxPrimoPos = i;
+            }
+        }
+
+        if (maxPrimoPos != -1)
+        {
+            Console.WriteLine($"El mayor número primo está en la posición {maxPrimoPos}");
+        }
+        else
+        {
+            Console.WriteLine("No se ingresaron números primos.");
+        }
+    }
+
+    static bool EsPrimo(int num)
+    {
+        if (num < 2) return false;
+        for (int i = 2; i * i <= num; i++)
+        {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
