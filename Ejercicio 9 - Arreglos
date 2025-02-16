@@ -1,0 +1,49 @@
+using System;
+
+class Program
+{
+    // Función para leer un arreglo de 10 números enteros
+    static void LeerArreglo(int[] arreglo)
+    {
+        for (int i = 0; i < arreglo.Length; i++)
+        {
+            Console.WriteLine("Introduce un número entero: ");
+            arreglo[i] = int.Parse(Console.ReadLine());
+        }
+    }
+
+    // Función para calcular el factorial de un número
+    static long CalcularFactorial(int numero)
+    {
+        if (numero == 0 || numero == 1) 
+            return 1; // El factorial de 0 y 1 es 1
+        long resultado = 1;
+        for (int i = 2; i <= numero; i++)
+        {
+            resultado *= i; // Multiplicamos para calcular el factorial
+        }
+        return resultado;
+    }
+
+    static void Main()
+    {
+        int[] numeros = new int[10]; // Arreglo para almacenar los números leídos
+        long[] factoriales = new long[10]; // Arreglo para almacenar los factoriales
+
+        // Llamamos a la función para leer los números
+        LeerArreglo(numeros);
+
+        // Calculamos el factorial de cada número y lo almacenamos en el arreglo factoriales
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            factoriales[i] = CalcularFactorial(numeros[i]); // Calculamos el factorial
+        }
+
+        // Mostramos los resultados
+        Console.WriteLine("\nLos factoriales de los números son:");
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            Console.WriteLine("Número: " + numeros[i] + " -> Factorial: " + factoriales[i]);
+        }
+    }
+}
