@@ -1,0 +1,37 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Declaramos un arreglo para almacenar los 10 números
+        int[] numeros = new int[10];
+        int contador = 0; // Variable para contar cuántos números comienzan con un dígito primo
+
+        // Usamos un ciclo para leer los 10 números
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine("Introduce un número entero: ");
+            numeros[i] = int.Parse(Console.ReadLine()); // Leemos el número y lo almacenamos en el arreglo
+        }
+
+        // Recorremos el arreglo para verificar el primer dígito de cada número
+        for (int i = 0; i < 10; i++)
+        {
+            // Convertimos el número a una cadena de texto para obtener el primer dígito
+            string numeroComoCadena = Math.Abs(numeros[i]).ToString(); // Usamos Math.Abs para asegurar que no hay problemas con números negativos
+
+            // Tomamos el primer dígito
+            char primerDigito = numeroComoCadena[0];
+
+            // Verificamos si el primer dígito es un dígito primo (2, 3, 5 o 7)
+            if (primerDigito == '2' || primerDigito == '3' || primerDigito == '5' || primerDigito == '7')
+            {
+                contador++; // Aumentamos el contador si el primer dígito es primo
+            }
+        }
+
+        // Mostramos el resultado
+        Console.WriteLine("Cantidad de números que comienzan con un dígito primo: " + contador);
+    }
+}
