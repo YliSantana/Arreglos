@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Declaramos un arreglo para almacenar los 10 números
+        int[] numeros = new int[10];  
+        int contadorNegativos = 0;  // Variable para contar los números negativos
+
+        // Usamos un ciclo para leer los 10 números
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine("Introduce un número entero: "); // Pedimos un número
+            numeros[i] = int.Parse(Console.ReadLine()); // Leemos el número y lo almacenamos en el arreglo
+        }
+
+        // Recorremos el arreglo para contar los negativos
+        for (int i = 0; i < 10; i++)
+        {
+            if (numeros[i] < 0) // Si el número es negativo
+            {
+                contadorNegativos++; // Aumentamos el contador
+            }
+        }
+
+        // Mostramos cuántos números negativos hay
+        Console.WriteLine("Cantidad de números negativos: " + contadorNegativos);
+    }
+}
