@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Declaramos un arreglo para almacenar los 10 números
+        int[] numeros = new int[10];
+        int suma = 0;  // Variable para almacenar la suma de los números
+
+        // Usamos un ciclo para leer los 10 números
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine("Introduce un número entero: ");
+            numeros[i] = int.Parse(Console.ReadLine()); // Leemos el número y lo almacenamos en el arreglo
+        }
+
+        // Sumamos todos los números del arreglo
+        for (int i = 0; i < 10; i++)
+        {
+            suma += numeros[i]; // Añadimos cada número a la suma
+        }
+
+        // Calculamos el promedio entero
+        int promedio = suma / 10;  // Dividimos la suma entre 10 para obtener el promedio entero
+
+        // Mostramos el resultado
+        Console.WriteLine("El promedio entero de los números es: " + promedio);
+    }
+}
