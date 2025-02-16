@@ -1,0 +1,36 @@
+using System;
+
+class Program
+{
+    // Función para leer un arreglo de 10 números usando Array
+    static void LeerArreglo(int[] arreglo)
+    {
+        for (int i = 0; i < arreglo.Length; i++)
+        {
+            Console.WriteLine("Introduce un número entero: ");
+            arreglo[i] = int.Parse(Console.ReadLine());
+        }
+    }
+
+    static void Main()
+    {
+        int[] numeros = new int[10]; // Creamos un arreglo de 10 elementos
+
+        // Llamamos a la función para leer los números y almacenarlos en el arreglo
+        LeerArreglo(numeros);
+
+        // Verificamos en qué posiciones se encuentran los números con más de 3 dígitos
+        Console.WriteLine("Las posiciones de los números con más de 3 dígitos son: ");
+        
+        // Usamos el método Array.Length para iterar sobre el arreglo
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            // Convertimos el número a string para contar los dígitos
+            string numeroComoCadena = Math.Abs(numeros[i]).ToString(); // Usamos Math.Abs para evitar problemas con números negativos
+            if (numeroComoCadena.Length > 3) // Si el número tiene más de 3 dígitos
+            {
+                Console.WriteLine("Posición: " + i + " (Número: " + numeros[i] + ")");
+            }
+        }
+    }
+}
