@@ -1,0 +1,41 @@
+using System;
+
+class Program
+{
+    // Función para leer un arreglo de 10 números enteros
+    static void LeerArreglo(int[] arreglo)
+    {
+        for (int i = 0; i < arreglo.Length; i++)
+        {
+            Console.WriteLine("Introduce un número entero: ");
+            arreglo[i] = int.Parse(Console.ReadLine());
+        }
+    }
+
+    static void Main()
+    {
+        int[] numeros = new int[10]; // Creamos un arreglo de 10 números
+        int numABuscar; // Número para el cual buscamos divisores exactos
+
+        // Leemos los 10 números y los almacenamos en el arreglo
+        LeerArreglo(numeros);
+
+        // Leemos el número adicional
+        Console.WriteLine("Introduce un número para buscar sus divisores exactos: ");
+        numABuscar = int.Parse(Console.ReadLine());
+
+        // Contamos cuántos divisores exactos tiene el número entre los valores del arreglo
+        int contadorDivisores = 0;
+
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            if (numABuscar % numeros[i] == 0) // Si el número es divisible por el elemento del arreglo
+            {
+                contadorDivisores++;
+            }
+        }
+
+        // Mostramos el resultado
+        Console.WriteLine($"El número {numABuscar} tiene {contadorDivisores} divisores exactos entre los valores del arreglo.");
+    }
+}
